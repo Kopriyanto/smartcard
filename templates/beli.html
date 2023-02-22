@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/js/bootstrap.min.js">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="text-center">
+                <h1>Smartcard</h1>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <section>
+        <div class="contianer-fluid">
+            <div class="row p-5">
+                <div class="col-lg-4 border-end">
+                    <h4>Form Pembelian</h4>
+                    <form action="/beli/tambah" method="post">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Kode Barang</label>
+                          <input type="text" class="form-control" name="kode_barang">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+        <div class="contianer-fluid">
+            <div class="row p-5">
+                <div class="d-flex">
+                    <a href="/beli" class="btn btn-primary btn-sm">Beli</a>
+                </div>
+                <div class="col-lg-8">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Kode Barang</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Harga</th>
+                            <!-- <th scope="col">Aksi</th> -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for t in table %}
+                                <tr>
+                                    <td>{{ t.kd_barang }}</td>
+                                    <td>{{ t.barang.nama }}</td>
+                                    <td>{{ t.barang.harga }}</td>
+
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Total</label>
+                        <input type="text" class="form-control" name="kode_barang" value="{{ total }}">
+                      </div>
+                      <form action="/beli/bayar" method="post">
+                        <div class="mb-3">
+                          <label for="nis" class="form-label">NIS</label>
+                          <input type="text" class="form-control" name="nis">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Bayar</button>
+                      </form>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

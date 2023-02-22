@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/js/bootstrap.min.js">
+</head>
+<body>
+    <header class="bg-dark text-white p-3">
+        <div class="container">
+            <div class="text-center">
+                <h1>Smartcard</h1>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="contianer-fluid">
+            <div class="row p-5">
+                <div class="col-lg-4 border-end">
+                    <h4>Data Siswa</h4>
+                    <form>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">NIS</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ siswa.nis }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Nama Siswa</label>
+                          <input type="text" class="form-control" id="exampleInputPassword1" value="{{ siswa.name }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="kelas" class="form-label">Kelas</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" value="{{ siswa.kelas }}" disabled>
+                          </div>
+                          <div class="mb-3">
+                            <label for="saldo" class="form-label">Saldo</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" value="{{ siswa.saldo }}" disabled>
+                          </div>
+                      </form>
+                </div>
+                <div class="col-lg-8">
+                    <h4>Riwayat Transaksi</h4>
+                    <table class="table table-striped table-responsive">
+                        <thead>
+                        <tr>
+                            <th scope="col">Tanggal</th>
+                            <!-- <th scope="col">Tanggal</th> -->
+                            <th scope="col">Saldo</th>
+                            <!-- <th scope="col">Kode Barang</th> -->
+                            <th scope="col">Total</th>
+                            <!-- <th scope="col">Aksi</th> -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for r in riwayat %}
+                                <tr>
+
+                                    <td>{{ r.created_at }}</td>
+                                    <td>{{ r.saldo }}</td>
+                                    <td>{{ r.total }}</td>
+                                    
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

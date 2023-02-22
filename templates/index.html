@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/js/bootstrap.min.js">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="text-center">
+                <h1>Smartcard</h1>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <section>
+        <div class="contianer-fluid">
+            <div class="row p-5">
+                <div class="d-flex">
+                    <a href="/beli" class="btn btn-primary btn-sm">Beli</a>
+                </div>
+                <div class="col-lg-8">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nama Siswa</th>
+                            <th scope="col">NIS</th>
+                            <th scope="col">Kelas</th>
+                            <!-- <th scope="col">Aksi</th> -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for s in siswa %}
+                                <tr>
+                                    <!-- <td>{{ s.id }}</td> -->
+                                    <td>{{ s.name }}</td>
+                                    <td>{{ s.nis }}</td>
+                                    <td>{{ s.kelas }}</td>
+                                    <td> 
+                                        <a href="/siswa?id={{ s.id }}" class="btn btn-primary btn-sm">Lihat</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>
